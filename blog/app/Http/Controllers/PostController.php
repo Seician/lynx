@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
 use App\Models\Post;
-use App\Repositories\PostRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     protected $postRepository;
+
     protected $categoryRepository;
 
     public function __construct(PostRepository $postRepo, CategoryRepository $categoryRepo)

@@ -6,14 +6,12 @@ use App\Nova\Filters\PostCategory;
 use App\Nova\Metrics\NewPosts;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Slug;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\HasMany;
-use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Http\Requests\NovaRequest;
-
 
 class Post extends Resource
 {
@@ -85,7 +83,7 @@ class Post extends Resource
     public function cards(NovaRequest $request)
     {
         return [
-            new NewPosts()
+            new NewPosts(),
         ];
     }
 
@@ -97,7 +95,7 @@ class Post extends Resource
     public function filters(NovaRequest $request)
     {
         return [
-            new PostCategory()
+            new PostCategory(),
         ];
     }
 
