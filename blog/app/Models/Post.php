@@ -12,6 +12,10 @@ class Post extends Model
     protected $guarded = ['id'];
     // protected $fillable = ['title', 'excerpt', 'body'];
 
+    protected $casts = [
+        'published_at' => 'date',
+    ];
+
     protected $with = ['category', 'author'];
 
     public function scopeFilter($query, array $filters)
@@ -20,8 +24,8 @@ class Post extends Model
         $query->when($filters['search'] ?? false, function ($query, $search) {
             if ($filters['search'] ?? false) {
                 $query
-                    ->where('title', 'like', '%'.$search.'%')
-                    ->orWhere('body', 'like', '%'.$search.'%');
+                    ->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('body', 'like', '%' . $search . '%');
             }
         });
     }

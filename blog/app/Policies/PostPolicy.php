@@ -15,18 +15,23 @@ class PostPolicy
         //
     }
 
-    public function view(User $user, Comment $comment)
+    public function view(User $user)
     {
-        return $user->id === $comment->user_id;
+        return true;
     }
 
-    public function update(User $user, Comment $comment)
+    public function update(User $user)
     {
-        return $user->id === $comment->user_id;
+        return true;
     }
 
-    public function delete(User $user, Comment $comment)
+    public function create(User $user)
     {
-        return $user->id === $comment->user_id;
+        return true;
+    }
+
+    public function delete(User $user)
+    {
+        return true;
     }
 }

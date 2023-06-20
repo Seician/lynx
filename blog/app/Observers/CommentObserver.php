@@ -12,11 +12,12 @@ class CommentObserver
      */
     public function created(Comment $comment): void
     {
-        Log::info('created event call: ' . $comment);
+        Log::info('created event call: '.$comment);
     }
+
     public function creating(Comment $comment): void
     {
-        Log::info('creating event call: ' . $comment);
+        Log::info('creating event call: '.$comment);
     }
 
     /**
@@ -32,7 +33,7 @@ class CommentObserver
      */
     public function deleted(Comment $comment): void
     {
-        Log::info('deleted event call: ' . $comment);
+        Log::info('deleted event call: '.$comment);
     }
 
     /**

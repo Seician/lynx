@@ -22,16 +22,15 @@ class CommentController extends Controller
     {
         // return $this->commentRepository->getAllComments();
 
-        $comment =  Comment::create([
+        $comment = Comment::create([
             'post_id' => 1,
             'user_id' => 1,
-            'body' => 'This is siler'
+            'body' => 'This is siler',
         ]);
 
         $comment->delete();
 
-
-        dd("done");
+        dd('done');
     }
 
     /**

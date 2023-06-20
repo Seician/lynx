@@ -5,26 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use App\Repositories\PostRepository;
+use App\Repositories\CategoryRepository;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     protected $postRepository;
+    protected $categoryRepository;
 
-    public function __construct(PostRepository $postRepo)
+    public function __construct(PostRepository $postRepo, CategoryRepository $categoryRepo)
     {
         $this->postRepository = $postRepo;
+        $this->categoryRepository = $categoryRepo;
     }
 
     public function index(Request $request)
     {
         $latest_post = $this->postRepository->getLatestPost($request->get('search', null));
         $posts = $this->postRepository->getAllPost();
+        $categories = $this->categoryRepository->getAllCategories();
 
         return view('posts', [
             'posts' => $posts,
             'latest_post' => $latest_post,
-            'categories' => Category::all(),
+            'categories' => $categories,
         ]);
     }
 
